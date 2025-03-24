@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail, ChevronDown, Building2, GraduationCap, Calendar, MapPin } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Github, Linkedin, Mail, ChevronDown, Building2, GraduationCap, Calendar, MapPin, Menu, X } from 'lucide-react';
 import { projects } from './projects'
 
 const skills = [
@@ -8,8 +9,98 @@ const skills = [
 ]
 
 function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const navHeight = 80;
+      const elementPosition = element.offsetTop - navHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            <button
+              onClick={() => scrollToSection('hero')}
+              className="text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors"
+            >
+              Portfolio
+            </button>
+
+            <div className="hidden md:flex space-x-8">
+              <button onClick={() => scrollToSection('experiences')} className="text-gray-600 hover:text-gray-900">Experiences</button>
+              <button onClick={() => scrollToSection('education')} className="text-gray-600 hover:text-gray-900">Education</button>
+              <button onClick={() => scrollToSection('projects')} className="text-gray-600 hover:text-gray-900">Projects</button>
+              <button onClick={() => scrollToSection('skills')} className="text-gray-600 hover:text-gray-900">Skills</button>
+              <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-gray-900">Contact</button>
+            </div>
+
+            <button
+              className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+
+          {isMenuOpen && (
+            <div className="md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg border-t">
+              <div className="px-4 py-2 space-y-2">
+                <button
+                  onClick={() => scrollToSection('experiences')}
+                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
+                >
+                  Experiences
+                </button>
+                <button
+                  onClick={() => scrollToSection('education')}
+                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
+                >
+                  Education
+                </button>
+                <button
+                  onClick={() => scrollToSection('projects')}
+                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
+                >
+                  Projects
+                </button>
+                <button
+                  onClick={() => scrollToSection('skills')}
+                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
+                >
+                  Skills
+                </button>
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
+                >
+                  Contact
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
+
       <section id="hero" className="min-h-screen flex flex-col justify-center relative px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 opacity-50"></div>
@@ -43,12 +134,10 @@ function App() {
         </div>
       </section>
 
-      {/* Experience Section */}
       <section id="experiences" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Professional Experiences</h2>
           <div className="space-y-12">
-            {/* Abletech Software Engineer */}
             <div className="border-l-4 border-blue-500 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
                 <Building2 className="text-blue-500" size={24} />
@@ -85,7 +174,6 @@ function App() {
               </div>
             </div>
 
-            {/* Abletech Junior Software Engineer */}
             <div className="border-l-4 border-blue-500 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
                 <Building2 className="text-blue-500" size={24} />
@@ -116,7 +204,6 @@ function App() {
               </div>
             </div>
 
-            {/* Law Office Freelancer */}
             <div className="border-l-4 border-blue-500 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
                 <Building2 className="text-blue-500" size={24} />
@@ -145,7 +232,6 @@ function App() {
               </div>
             </div>
 
-            {/* UFPE IT Intern */}
             <div className="border-l-4 border-blue-500 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
                 <Building2 className="text-blue-500" size={24} />
@@ -171,12 +257,10 @@ function App() {
         </div>
       </section>
 
-      {/* Education Section */}
       <section id="education" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Education</h2>
           <div className="space-y-12">
-            {/* Post Graduation */}
             <div className="border-l-4 border-indigo-500 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
                 <GraduationCap className="text-indigo-500" size={24} />
@@ -194,7 +278,6 @@ function App() {
               </div>
             </div>
 
-            {/* Bachelor's Degree */}
             <div className="border-l-4 border-indigo-500 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
                 <GraduationCap className="text-indigo-500" size={24} />
