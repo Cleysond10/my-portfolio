@@ -1,19 +1,27 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, ChevronDown, Building2, GraduationCap, Calendar, MapPin, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText, ChevronDown, Building2, GraduationCap, Calendar, MapPin, Menu, X } from 'lucide-react';
 import { projects } from './projects'
 
 const skills = [
   "JavaScript", "TypeScript", "React", "React Native", "Node.js", "NestJS",
-  "Python", "Java", "FastAPI", "Spring Boot", "Docker", "AWS",
-  "MongoDB", "PostgreSQL", "Git", "CI/CD"
+  "Python", "Java", "FastAPI", "Spring Boot", "PostgreSQL", "MongoDB", "Docker", "AWS",
+   "Git", "CI/CD"
 ]
 
 function App() {
+  const [changeNavTitle, setChangeNavTitle] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showBadgeTitle, setShowBadgeTitle] = useState({
+    github: false,
+    linkedin: false,
+    email: false,
+    resume: false
+  });
 
   useEffect(() => {
     const handleScroll = () => {
+      setChangeNavTitle(window.scrollY > 500);
       setIsScrolled(window.scrollY > 50);
     };
 
@@ -43,7 +51,7 @@ function App() {
               onClick={() => scrollToSection('hero')}
               className="text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors"
             >
-              Portfolio
+              {changeNavTitle ? 'Cleyson Duarte' : 'Portfolio'}
             </button>
 
             <div className="hidden md:flex space-x-8">
@@ -114,17 +122,51 @@ function App() {
             Experienced <b>software engineer</b> skilled in contributing across the full lifecycle of digital products - developing, maintaining, and testing web and mobile applications.
           </p>
           <div className="flex space-x-4">
-            <a href="https://github.com/Cleysond10" target="_blank" rel="noopener noreferrer"
-               className="p-2 bg-gray-900 text-white rounded-full hover:bg-gray-700 transition-colors">
-              <Github size={24} />
-            </a>
             <a href="https://www.linkedin.com/in/cleysonduarte" target="_blank" rel="noopener noreferrer"
-               className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-500 transition-colors">
+               onMouseEnter={() => setShowBadgeTitle(prev => ({...prev, linkedin: true}))}
+               onMouseLeave={() => setShowBadgeTitle(prev => ({...prev, linkedin: false}))}
+               className="flex items-center gap-2 p-2 bg-blue-600 text-white rounded-full hover:bg-blue-500 transition-colors hover:w-28">
               <Linkedin size={24} />
+              {showBadgeTitle.linkedin && (
+              <p className="text-sm sm:text-md text-white max-w-2xl">
+                LinkedIn
+              </p>
+              )}
+            </a>
+            <a href="https://github.com/Cleysond10" target="_blank" rel="noopener noreferrer"
+               onMouseEnter={() => setShowBadgeTitle(prev => ({...prev, github: true}))}
+               onMouseLeave={() => setShowBadgeTitle(prev => ({...prev, github: false}))}
+               className="flex items-center gap-1 p-2 bg-gray-900 text-white rounded-full hover:bg-gray-700 transition-colors hover:w-24">
+              <Github size={24} />
+              {showBadgeTitle.github && (
+              <p className="text-sm sm:text-md text-white max-w-2xl">
+                GitHub
+              </p>
+              )}
             </a>
             <a href="mailto:cleysonduarte99@gmail.com"
-               className="p-2 bg-red-500 text-white rounded-full hover:bg-red-400 transition-colors">
+               onMouseEnter={() => setShowBadgeTitle(prev => ({...prev, email: true}))}
+               onMouseLeave={() => setShowBadgeTitle(prev => ({...prev, email: false}))}
+               className="flex items-center gap-1 p-2 bg-red-500 text-white rounded-full hover:bg-red-400 transition-colors hover:w-20">
               <Mail size={24} />
+              {showBadgeTitle.email && (
+              <p className="text-sm sm:text-md text-white max-w-2xl">
+                Email
+              </p>
+              )}
+            </a>
+            <a href="https://docs.google.com/document/d/1ZC7Xxmak8VESn_6wX_bP5fCWFXtzjBKO/edit?usp=sharing&ouid=105958868606140462677&rtpof=true&sd=true"
+               target="_blank"
+               rel="noopener noreferrer"
+               onMouseEnter={() => setShowBadgeTitle(prev => ({...prev, resume: true}))}
+               onMouseLeave={() => setShowBadgeTitle(prev => ({...prev, resume: false}))}
+               className="flex items-center gap-1 p-2 bg-green-600 text-white rounded-full hover:bg-green-500 transition-colors hover:w-24">
+              <FileText size={24} />
+              {showBadgeTitle.resume && (
+              <p className="text-sm sm:text-md text-white max-w-2xl">
+                Resume
+              </p>
+              )}
             </a>
           </div>
         </div>
