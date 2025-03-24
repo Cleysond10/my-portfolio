@@ -10,7 +10,7 @@ const colorMap = {
 export const projects = [
   {
     id: 1,
-    img: "src/assets/vex-platform.png",
+    img: "/assets/vex-platform.png",
     title: "VEx - Video Experience Platform",
     description: "A modern video streaming platform that allows users to browse, search, and watch videos from YouTube and Vimeo, with features like favorites, autoplay, theme toggle and responsive design.",
     url: "https://vexplatform.netlify.app/",
