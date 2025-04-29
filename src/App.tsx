@@ -183,12 +183,40 @@ function App() {
             <div className="border-l-4 border-blue-500 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
                 <Building2 className="text-blue-500" size={24} />
+                <h3 className="text-2xl font-semibold">Full Stack Engineer</h3>
+              </div>
+              <div className="flex items-center space-x-4 text-gray-600">
+                <span className="flex items-center">
+                  <Calendar className="mr-2" size={16} />
+                  Apr 2025 - Present
+                </span>
+                <span className="flex items-center">
+                  <MapPin className="mr-2" size={16} />
+                  CI&T
+                </span>
+              </div>
+              <ul className="list-disc list-inside text-gray-600 space-y-2">
+                <li>Maintaining frontend and backend of a financial client's platform</li>
+                <li>Collaborating with a global and diverse team to deliver high-quality software solutions</li>
+              </ul>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">TypeScript</span>
+                <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Angular</span>
+                <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Node.js</span>
+                <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">NestJS</span>
+                <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Java</span>
+              </div>
+            </div>
+
+            <div className="border-l-4 border-blue-500 pl-6 space-y-4">
+              <div className="flex items-center space-x-2">
+                <Building2 className="text-blue-500" size={24} />
                 <h3 className="text-2xl font-semibold">Software Engineer</h3>
               </div>
               <div className="flex items-center space-x-4 text-gray-600">
                 <span className="flex items-center">
                   <Calendar className="mr-2" size={16} />
-                  Feb 2023 - Present
+                  Feb 2023 - Mar 2025
                 </span>
                 <span className="flex items-center">
                   <MapPin className="mr-2" size={16} />
@@ -202,7 +230,7 @@ function App() {
                 <li>Performance optimization of 98.75%: Reduced compilation time from 32 seconds to 400 milliseconds by replacing a legacy validation tool</li>
                 <li>Real-time messaging implementation: Integrated an in-app chat system using Firebase</li>
                 <li>State management enhancement: Optimized state handling with Redux</li>
-                <li>Backend contributions: Developed new API endpoints in Nest.js, following clean architecture principles</li>
+                <li>Backend contributions: Developed new API endpoints in NestJS, following clean architecture principles</li>
                 <li>Technical leadership: Led a team in developing a responsive web app for mobile browsers</li>
                 <li>Microservice Development: Created a Python API for image manipulation using OpenCV</li>
                 <li>Monolithic Maintenance: Enhanced a Spring Boot application with MVC architecture</li>
@@ -212,7 +240,7 @@ function App() {
                 <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Node.js</span>
                 <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Python</span>
                 <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Spring Boot</span>
-                <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Nest.js</span>
+                <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">NestJS</span>
               </div>
             </div>
 
