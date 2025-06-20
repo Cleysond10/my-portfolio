@@ -3,9 +3,10 @@ import { Github, Linkedin, Mail, FileText, ChevronDown, Building2, GraduationCap
 import { projects } from './projects'
 
 const skills = [
-  "JavaScript", "TypeScript", "React", "React Native", "Node.js", "NestJS",
+  "JavaScript", "TypeScript", "React", "React Native", "Node.js", "NestJS", "Angular",
   "Python", "Java", "FastAPI", "Spring Boot", "PostgreSQL", "MongoDB", "Docker", "AWS",
-   "Git", "CI/CD"
+   "Git", "CI/CD", "RESTful APIs", "GraphQL", "Testing", "Agile Methodologies",
+   "Team Collaboration", "Communication", "Adaptability"
 ]
 
 function App() {
@@ -49,21 +50,21 @@ function App() {
           <div className="flex justify-between items-center h-20">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors"
+              className="text-2xl font-bold text-[#ff8619] hover:text-[#ef7c34] transition-colors"
             >
               {changeNavTitle ? 'Cleyson Duarte' : 'Portfolio'}
             </button>
 
             <div className="hidden md:flex space-x-8">
-              <button onClick={() => scrollToSection('experiences')} className="text-gray-600 hover:text-gray-900">Experiences</button>
-              <button onClick={() => scrollToSection('education')} className="text-gray-600 hover:text-gray-900">Education</button>
-              <button onClick={() => scrollToSection('projects')} className="text-gray-600 hover:text-gray-900">Projects</button>
-              <button onClick={() => scrollToSection('skills')} className="text-gray-600 hover:text-gray-900">Skills</button>
-              <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-gray-900">Contact</button>
+              <button onClick={() => scrollToSection('experiences')} className="text-gray-600 hover:text-[#ff8619]">Experiences</button>
+              <button onClick={() => scrollToSection('education')} className="text-gray-600 hover:text-[#ff8619]">Education</button>
+              <button onClick={() => scrollToSection('projects')} className="text-gray-600 hover:text-[#ff8619]">Projects</button>
+              <button onClick={() => scrollToSection('skills')} className="text-gray-600 hover:text-[#ff8619]">Skills</button>
+              <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-[#ff8619]">Contact</button>
             </div>
 
             <button
-              className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+              className="md:hidden p-2 rounded-md text-gray-600 hover:text-[#ff8619] hover:bg-gray-100"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -75,31 +76,31 @@ function App() {
               <div className="px-4 py-2 space-y-2">
                 <button
                   onClick={() => scrollToSection('experiences')}
-                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
+                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-[#ff8619] hover:bg-gray-100 rounded"
                 >
                   Experiences
                 </button>
                 <button
                   onClick={() => scrollToSection('education')}
-                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
+                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-[#ff8619] hover:bg-gray-100 rounded"
                 >
                   Education
                 </button>
                 <button
                   onClick={() => scrollToSection('projects')}
-                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
+                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-[#ff8619] hover:bg-gray-100 rounded"
                 >
                   Projects
                 </button>
                 <button
                   onClick={() => scrollToSection('skills')}
-                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
+                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-[#ff8619] hover:bg-gray-100 rounded"
                 >
                   Skills
                 </button>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded"
+                  className="block w-full text-left px-3 py-2 text-gray-600 hover:text-[#ff8619] hover:bg-gray-100 rounded"
                 >
                   Contact
                 </button>
@@ -111,7 +112,7 @@ function App() {
 
       <section id="hero" className="min-h-screen flex flex-col justify-center relative px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 opacity-50"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-50"></div>
         </div>
 
         <div className="max-w-7xl mx-auto w-full z-10">
@@ -172,7 +173,7 @@ function App() {
         </div>
 
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown size={32} className="text-gray-400" />
+          <ChevronDown size={32} className="text-[#ff8619]" />
         </div>
       </section>
 
@@ -180,9 +181,9 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Professional Experiences</h2>
           <div className="space-y-12">
-            <div className="border-l-4 border-blue-500 pl-6 space-y-4">
+            <div className="border-l-4 border-blue-800 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
-                <Building2 className="text-blue-500" size={24} />
+                <Building2 className="text-blue-800" size={24} />
                 <h3 className="text-2xl font-semibold">Full Stack Engineer</h3>
               </div>
               <div className="flex items-center space-x-4 text-gray-600">
@@ -208,9 +209,9 @@ function App() {
               </div>
             </div>
 
-            <div className="border-l-4 border-blue-500 pl-6 space-y-4">
+            <div className="border-l-4 border-blue-800 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
-                <Building2 className="text-blue-500" size={24} />
+                <Building2 className="text-blue-800" size={24} />
                 <h3 className="text-2xl font-semibold">Software Engineer</h3>
               </div>
               <div className="flex items-center space-x-4 text-gray-600">
@@ -244,9 +245,9 @@ function App() {
               </div>
             </div>
 
-            <div className="border-l-4 border-blue-500 pl-6 space-y-4">
+            <div className="border-l-4 border-blue-800 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
-                <Building2 className="text-blue-500" size={24} />
+                <Building2 className="text-blue-800" size={24} />
                 <h3 className="text-2xl font-semibold">Junior Software Engineer</h3>
               </div>
               <div className="flex items-center space-x-4 text-gray-600">
@@ -274,9 +275,9 @@ function App() {
               </div>
             </div>
 
-            <div className="border-l-4 border-blue-500 pl-6 space-y-4">
+            <div className="border-l-4 border-blue-800 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
-                <Building2 className="text-blue-500" size={24} />
+                <Building2 className="text-blue-800" size={24} />
                 <h3 className="text-2xl font-semibold">Full Stack Web Developer</h3>
               </div>
               <div className="flex items-center space-x-4 text-gray-600">
@@ -302,9 +303,9 @@ function App() {
               </div>
             </div>
 
-            <div className="border-l-4 border-blue-500 pl-6 space-y-4">
+            <div className="border-l-4 border-blue-800 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
-                <Building2 className="text-blue-500" size={24} />
+                <Building2 className="text-blue-800" size={24} />
                 <h3 className="text-2xl font-semibold">IT Intern</h3>
               </div>
               <div className="flex items-center space-x-4 text-gray-600">
@@ -327,13 +328,13 @@ function App() {
         </div>
       </section>
 
-      <section id="education" className="py-20 bg-gray-50">
+      <section id="education" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Education</h2>
           <div className="space-y-12">
-            <div className="border-l-4 border-indigo-500 pl-6 space-y-4">
+            <div className="border-l-4 border-blue-600 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
-                <GraduationCap className="text-indigo-500" size={24} />
+                <GraduationCap className="text-blue-600" size={24} />
                 <h3 className="text-2xl font-semibold">Software Engineering, Post Graduation</h3>
               </div>
               <div className="flex items-center space-x-4 text-gray-600">
@@ -346,11 +347,14 @@ function App() {
                   University of São Paulo
                 </span>
               </div>
+              <ul className="list-disc list-inside text-gray-600 space-y-2">
+                <li>Thesis: Evolution of Back-end Design Patterns: From Monolithic Architecture to Modern Strategies for Microservices and Cloud</li>
+              </ul>
             </div>
 
-            <div className="border-l-4 border-indigo-500 pl-6 space-y-4">
+            <div className="border-l-4 border-blue-600 pl-6 space-y-4">
               <div className="flex items-center space-x-2">
-                <GraduationCap className="text-indigo-500" size={24} />
+                <GraduationCap className="text-blue-600" size={24} />
                 <h3 className="text-2xl font-semibold">Computer Science, Bachelor's Degree</h3>
               </div>
               <div className="flex items-center space-x-4 text-gray-600">
@@ -380,7 +384,7 @@ function App() {
               <div
                 key={project.id}
                 onClick={() => window.open(project.url, "_blank", "noopener,noreferrer")}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:bg-slate-100 cursor-pointer hover:scale-105 transition"
+                className="bg-white rounded-lg shadow-lg overflow-hidden hover:bg-gray-50 cursor-pointer hover:scale-105 transition"
               >
                 <img
                   src={project.img}
@@ -388,7 +392,7 @@ function App() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6 h-full">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <h3 className="text-xl text-gray-900 font-semibold mb-2">{project.title}</h3>
                   <p className="text-gray-600 mb-4">
                     {project.description}
                   </p>
@@ -408,13 +412,13 @@ function App() {
         </div>
       </section>
 
-      <section id="skills" className="py-20 bg-gray-50">
+      <section id="skills" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Skills & Technologies</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {skills.map((skill) => (
-              <div key={skill} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                <p className="text-lg font-medium text-gray-900">{skill}</p>
+              <div key={skill} className="bg-white rounded-lg p-6 text-gray-600 hover:text-[#ff8619] shadow-sm hover:shadow-md transition-shadow">
+                <p className="text-lg font-medium">{skill}</p>
               </div>
             ))}
           </div>
@@ -431,7 +435,7 @@ function App() {
             </p>
             <a
               href="mailto:cleysonduarte99@gmail.com"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-[#ff8619] text-black rounded-lg hover:bg-[#ef7c34] transition-colors"
             >
               <Mail className="mr-2" size={20} />
               Send me an email
